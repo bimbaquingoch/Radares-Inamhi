@@ -1,0 +1,28 @@
+.princpal{
+    background-color: aqua;
+    
+
+}
+.btn{
+    background-color:brown
+}
+.map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 100px 10px 0px 10px;
+  background-color: red;
+}
+
+.map-frame {
+  border: 2px solid black;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+}
+
+
