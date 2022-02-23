@@ -2,11 +2,10 @@
 """
 Created on Thu Dec 16 11:56:07 2021
 
-@author: kchangoluisa
+@author: Kevin Changoluisa
 """
 
 import os
-from pathlib import Path
 from flask import Flask, request
 from flask_cors import CORS
 from flask_socketio import SocketIO
@@ -29,16 +28,16 @@ archivosP00=[]
   
 @socketio.on('connect')
 def on_connect():
-    print('Client connected')
+    print('Cliente conectedo')
     users.append(request.sid)
-    print("Total de usarios conectados: ", len(users))
+    print("Total de usuarios conectados: ", len(users))
 
     
 @socketio.on('disconnect')
 def on_disconnect():
-    print('Client disconnect')
+    print('Cliente desconectado')
     users.remove(request.sid)
-    print("Total de usarios conectados: ", len(users))
+    print("Total de usuarios conectados: ", len(users))
 
 
 
@@ -64,9 +63,7 @@ def setListP00(data):
     asi almacenamos la informacion de todo el dia
     """
     archivosP00.append(data)
-    socketio.emit('getDataP00',data)
-    return "OK"
-    
+    socketio.emit('getDataP00',data)   
 
 
 if __name__ == '__main__':
