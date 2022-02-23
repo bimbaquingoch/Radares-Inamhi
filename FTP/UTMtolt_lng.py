@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jan  3 13:25:37 2022
+Created on Jul 14, 2018 at 13:08
+Universal Transverse Mercator coordinate system to lat long coordinates
+https://stackoverflow.com/a/344083/13732565
+
 """
 import math 
 
 def utmToLatLng(zone, easting, northing, northernHemisphere): 
+
     if not northernHemisphere: 
      northing = 10000000 - northing 
 

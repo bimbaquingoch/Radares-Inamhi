@@ -16,6 +16,7 @@ import socketio
 
 conexion = True
 sio = socketio.Client(reconnection=True)
+urlWS='wss://server-socketio-kevin.herokuapp.com/'
 
 
 class MyEventHandler(FileSystemEventHandler):
@@ -39,10 +40,9 @@ def disconnect():
     print("Volviendo a conectar")
     while True:
         try:
-            print("Queirnedo")
-            sio.connect('wss://server-socketio-kevin.herokuapp.com/',
+            sio.connect(urlWS,
                         transports='websocket')
-            print("Conectad")
+            print("Conectado")
         except Exception as e:
             print(e)
         else:
@@ -57,7 +57,7 @@ def enviarP00(data):
 
 
 def main():
-    sio.connect('wss://server-socketio-kevin.herokuapp.com/')
+    sio.connect(urlWS)
     observer = Observer()
     """
     Al método schedule() le asignamos un manejador (MyEventHandler) para que responda a los eventos que ocurran
